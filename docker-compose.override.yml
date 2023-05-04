@@ -22,6 +22,19 @@ services:
     volumes:
       - ./public:/srv/app/public:ro
       - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+    ports:
+      # HTTP
+      - target: 80
+        published: ${HTTP_PORT:-8000}
+        protocol: tcp
+      # HTTPS
+      - target: 443
+        published: ${HTTPS_PORT:-8888}
+        protocol: tcp
+      # HTTP/3
+      - target: 443
+        published: ${HTTP3_PORT:-8888}
+        protocol: udp
 
 ###> doctrine/doctrine-bundle ###
   database:

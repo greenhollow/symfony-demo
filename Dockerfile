@@ -9,6 +9,15 @@ FROM composer/composer:2-bin AS composer
 
 FROM mlocati/php-extension-installer:latest AS php_extension_installer
 
+# Build Caddy with the Mercure and Vulcain modules
+#FROM caddy:2.6-builder-alpine AS app_caddy_builder
+
+#RUN xcaddy build \
+#    --with github.com/dunglas/mercure \
+#    --with github.com/dunglas/mercure/caddy \
+#    --with github.com/dunglas/vulcain \
+#    --with github.com/dunglas/vulcain/caddy
+
 # Prod image
 FROM php:8.2-fpm-alpine AS app_php
 
@@ -116,6 +125,6 @@ FROM caddy:2.6-alpine AS app_caddy
 
 WORKDIR /srv/app
 
-COPY --from=app_caddy_builder --link /usr/bin/caddy /usr/bin/caddy
+#COPY --from=app_caddy_builder --link /usr/bin/caddy /usr/bin/caddy
 COPY --from=app_php --link /srv/app/public public/
 COPY --link docker/caddy/Caddyfile /etc/caddy/Caddyfile
