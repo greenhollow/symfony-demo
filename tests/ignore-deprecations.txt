@@ -1,0 +1,1 @@
+%The "DAMA\\DoctrineTestBundle\\Doctrine\\DBAL\\VersionAwarePlatformStaticDriver" class implements "Doctrine\\DBAL\\VersionAwarePlatformDriver"%
