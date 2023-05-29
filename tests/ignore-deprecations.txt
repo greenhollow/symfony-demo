@@ -1,1 +1,2 @@
 %The "DAMA\\DoctrineTestBundle\\Doctrine\\DBAL\\VersionAwarePlatformStaticDriver" class implements "Doctrine\\DBAL\\VersionAwarePlatformDriver"%
+%In API Platform 4 PUT will always replace the data%
